@@ -22,8 +22,7 @@ contract TokenSwap is Ownable{
     }
 
     function swap(uint256 amountTK2) public {
-        uint256 _amountTK1 = (amountTK2 / _valueTK1) * (10 ** 18);
-        //require(owner2[msg.sender], "Not authorized");  //user 
+        uint256 _amountTK1 = (amountTK2 / _valueTK1) * (10 ** 6);
         require(
             _token1.allowance(_owner1, address(this)) >= _amountTK1,  // wallet zeex
             "Token1 allowance too low"
@@ -50,6 +49,14 @@ contract TokenSwap is Ownable{
         _token1 = IBEP20(token1);
         _owner1 = owner1;
         _token2 = IBEP20(token2);
+        _valueTK1 = valueTK1;  
+    }
+
+    function setValueTK1(uint256 valueTK1) external onlyOwner {
+        _valueTK1 = valueTK1;  
+    }
+
+    function setOwner1(uint256 valueTK1) external onlyOwner {
         _valueTK1 = valueTK1;  
     }
 
