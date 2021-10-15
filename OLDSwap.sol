@@ -21,7 +21,7 @@ contract Swap is Ownable{
     }
 
     function swap(uint256 amountUSDT) public {
-        uint256 _amountZEEX = (amountUSDT * 10 ** 6) / _valueZEEX);
+        uint256 _amountZEEX = (amountUSDT / _valueZEEX) * (10 ** 6);
         require(
             _ZEEX.allowance(_ownerZEEX, address(this)) >= _amountZEEX,  
             "ZEEX allowance too low"
