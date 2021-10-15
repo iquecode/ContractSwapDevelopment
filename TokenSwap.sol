@@ -12,17 +12,17 @@ contract TokenSwap is Ownable{
     address internal _owner1;
     IBEP20  internal _token2;
 
-    uint256 _valueTK1  = 100000;  // 1Tk1 = 0.1ZZZ  se ZZZ tiver 6 casas decimais 
+    uint256 _valueTK1  = 1 * 10 ** 17;  // 1usdFacucet = 0.1ZFaucet if usdFacucet with  18 decimals 
     //uint8 decimalsTk2 = 6;
 
     constructor() {
-        _token1 = IBEP20(0xCBE6793495A3b389628E7E850C5C60BB4E45B937); //IKE
-        _owner1 = 0x0FF062e683Cf0682A6c2F01864C4AEe2B17728bC; //WALLET IKE Accont1 testnet firefox
-        _token2 = IBEP20(0x8E8Ac19F90Ad1CF1764D4559B522e219a5B9eC21); //ZZZ
+        _token1 = IBEP20(0xa8f8C76CE1528a20e6E837B9d3f53FDFEe0dCD32); //ZFAUCET
+        _owner1 = 0x8A3DA0982DF04988ad04536D92FeFe88701619Bc; //WALLET ZFAUCET - Teste1 tetnet
+        _token2 = IBEP20(0xEdA7631884Ee51b4cAa85c4EEed7b0926954d180); //USDFALCET
     }
 
     function swap(uint256 amountTK2) public {
-        uint256 _amountTK1 = (amountTK2 / _valueTK1) * (10 ** 6);
+        uint256 _amountTK1 = (amountTK2 / _valueTK1) * (10 ** 18);
         //require(owner2[msg.sender], "Not authorized");  //user 
         require(
             _token1.allowance(_owner1, address(this)) >= _amountTK1,  // wallet zeex
