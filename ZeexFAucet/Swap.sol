@@ -23,11 +23,11 @@ contract Swap is Ownable{
     function swap(uint256 amountUSDT) public {
         uint256 _amountZEEX = (amountUSDT / _valueZEEX) * (10 ** 6);
         require(
-            _ZEEX.allowance(_ownerZEEX, address(this)) >= _amountZEEX,  // wallet zeex
+            _ZEEX.allowance(_ownerZEEX, address(this)) >= _amountZEEX,  
             "ZEEX allowance too low"
         );
         require(
-            _USDT.allowance(msg.sender, address(this)) >= amountUSDT,  //USDT
+            _USDT.allowance(msg.sender, address(this)) >= amountUSDT,
             "USDT allowance too low"
         );
         _safeTransferFrom(_USDT, msg.sender, _ownerZEEX, amountUSDT);
