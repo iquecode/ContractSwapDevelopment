@@ -48,7 +48,7 @@ contract Swap is Ownable{
         _valueZEEX = valueZEEX;  
     }
 
-    function setOwnerZEEX(uint256 ownerZEEX) external onlyOwner {
+    function setOwnerZEEX(address ownerZEEX) external onlyOwner {
         _ownerZEEX = ownerZEEX;  
     }
 
