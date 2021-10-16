@@ -1,12 +1,27 @@
+// Submitted for verification at BscScan.com on 2021-10-15
+
+/*
+Public contract (Version 1.0) for secure swap between ZEEX (token 0xb9c21a1A716Ee781B0Ab282F3AEdDB3382d7aAdc) 
+and USDT (BEP20). Used by the Artzeex website and tools.
+*
+The Artzeex Ecosystem is a project focused on revolutionizing the art world by adding value to the world of NFT's 
+and the metaverse. For more information visit the link bellow:
+https://artzeex.com/
+
+200,000,000 Total Supply
+
+Name: Artzeex
+Symbol: ZEEX
+Decimals: 6
+*/
+
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.3;
 
 import "./IBEP20.sol";
 import "./Ownable.sol";
 
-/*
 
-*/
 contract Swap is Ownable{
     IBEP20  internal _ZEEX;
     address internal _ownerZEEX;
@@ -15,9 +30,9 @@ contract Swap is Ownable{
     uint256 _valueZEEX = 22 * 10 ** 16;  // 1ZEEX = 0,22USDT 
 
     constructor() {
-        _ZEEX      = IBEP20(0xa8f8C76CE1528a20e6E837B9d3f53FDFEe0dCD32); //ZFAUCET
-        _ownerZEEX = 0x8A3DA0982DF04988ad04536D92FeFe88701619Bc; //WALLET ZFAUCET - Teste1 tetnet
-        _USDT      = IBEP20(0xEdA7631884Ee51b4cAa85c4EEed7b0926954d180); //USDFALCET
+        _ZEEX      = IBEP20(0xb9c21a1A716Ee781B0Ab282F3AEdDB3382d7aAdc); 
+        _ownerZEEX = 0xa7Ada24C9E91e50c2d9C98B15635f4e8CDeC45C2;
+        _USDT      = IBEP20(0x55d398326f99059fF775485246999027B3197955);
     }
 
     function swap(uint256 amountUSDT) public {
